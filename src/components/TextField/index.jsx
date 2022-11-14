@@ -6,13 +6,14 @@ export const TextField = ({
   typographClass,
   text,
   textInstallments = false,
+  inputName,
 }) => {
   return (
     <>
       {textInstallments ? (
         <div className={textFieldClass}>
           <Typograph typographClass={typographClass} text={text} />
-          <Input type={"number"} installments={true} />
+          <Input type={"number"} inputName={inputName} />
 
           <Typograph
             typographClass={"main_label--installments"}
@@ -22,7 +23,7 @@ export const TextField = ({
       ) : (
         <div className={textFieldClass}>
           <Typograph typographClass={typographClass} text={text} />
-          <Input type={"number"} />
+          <Input type={"number"} inputName={inputName} />
         </div>
       )}
     </>
