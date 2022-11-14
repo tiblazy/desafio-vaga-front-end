@@ -11,16 +11,21 @@
 .main__label {
   font-size: 14px;
   line-height: 16px;
+
+  color: var(--main-primary-color);
 }
 
 .main_label--installments {
   font-size: 11px;
   line-height: 13px;
+
+  color: #cecece;
 }
 
 .side-bar-typograph {
   font-size: 16px;
   font-style: italic;
+  font-weight: 700;
 
   color: var(--sidebar-primary-color);
 }

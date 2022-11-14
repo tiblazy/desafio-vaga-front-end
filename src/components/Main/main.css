@@ -10,8 +10,6 @@
   width: 377px;
   height: 389px;
 
-  border: 1px solid black;
-
   color: var(--main-primary-color);
   background-color: var(--label-background-color);
 }

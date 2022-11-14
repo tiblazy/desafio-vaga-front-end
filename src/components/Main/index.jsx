@@ -1,7 +1,7 @@
 import { Typograph } from "../Typograph";
+import { Form } from "../Form";
 
 import "./main.css";
-import { Form } from "../Form";
 
 export const Main = () => {
   return (
