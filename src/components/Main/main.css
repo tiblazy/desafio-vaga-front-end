@@ -1,0 +1,17 @@
+@import "../../root.css";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+
+  width: 377px;
+  height: 389px;
+
+  border: 1px solid black;
+
+  color: var(--main-primary-color);
+  background-color: var(--label-background-color);
+}

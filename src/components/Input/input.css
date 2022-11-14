@@ -1,0 +1,34 @@
+@import "../../root.css";
+
+.label__input {
+  width: 251px;
+  height: 37px;
+  margin-top: 6px;
+
+  border: 1px solid #dde6e9;
+
+  color: var(--label-primary-color);
+  background-color: var(--label-background-color);
+}
+
+.label__input--installments {
+  margin-bottom: 3px;
+}
+
+.label__input:focus {
+  border: 1px solid #66afe9;
+}
+
+.label__input:active {
+  border: 1px solid #66afe9;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

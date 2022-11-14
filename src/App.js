@@ -1,11 +1,14 @@
-import { FlexContainer } from "../../FlexContainer";
+import { FlexContainer } from "./components/FlexContainer";
+import { Main } from "./components/Main";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="app">
-      <FlexContainer></FlexContainer>
+      <FlexContainer>
+        <Main />
+      </FlexContainer>
     </div>
   );
 }

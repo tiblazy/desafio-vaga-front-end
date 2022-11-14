@@ -1,0 +1,36 @@
+@import "../../root.css";
+
+.main-typograph {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+
+  color: var(--main-primary-color);
+}
+
+.main__label {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.main_label--installments {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.side-bar-typograph {
+  font-size: 16px;
+  font-style: italic;
+
+  color: var(--sidebar-primary-color);
+}
+
+.side-bar__day {
+  color: var(--sidebar-secundary-color);
+}
+
+.side-bar__results {
+  font-weight: bold;
+
+  color: var(--sidebar-secundary-color);
+}

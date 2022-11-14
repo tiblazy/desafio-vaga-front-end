@@ -1,0 +1,7 @@
+.main__form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  margin-top: 16px;
+}
