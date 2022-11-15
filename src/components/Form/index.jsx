@@ -3,24 +3,22 @@ import { ChallengeContext } from "../../contexts/challenge";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { calculateSchema } from "../../schemas";
+import { CalculateSchema } from "../../schemas";
 
 import { TextField } from "../TextField";
 import { Typograph } from "../Typograph";
 import { Error } from "../Error";
 
+import "../Main/main.css";
 import "./form.css";
 import "../Input/input.css";
 
 export const Form = () => {
-  const [amount, setAmount] = useState(0);
-  const [installments, setInstallments] = useState(0);
-  const [mdr, setMdr] = useState(0);
-  const [days, setDays] = useState([]);
+  const [listDays, setListDays] = useState([]);
 
   const { calculate } = useContext(ChallengeContext);
 
-  const formSchema = calculateSchema();
+  const formSchema = CalculateSchema();
   const {
     register,
     handleSubmit,
@@ -30,24 +28,27 @@ export const Form = () => {
   });
 
   const handleOnSubmit = (data) => {
-    setAmount(data.amount);
-    // setInstallments(data.installments);
-    // setMdr(data.mdr);
-    // setDays(data.days);
-
     console.log(data);
+    const array = ["30", "60", "90"];
+    const array2 = [];
+    for (let i = 0; i < array.length; i++) {
+      array2.push((i + 1) * Number(array.length[i]));
+      // setListDays([...listDays, (i + 1) * array.length[i]]);
+    }
+    console.log(array2);
 
-    // calculate({
-    //   amount: data.amount,
-    //   installments: 4,
-    //   mdr: 3,
-    // });
-    calculate({
-      amount,
-      installments: 3,
-      mdr: 4,
-      days: [30, 60, 90, 120, 150, 300],
-    });
+    data.days
+      ? calculate({
+          amount: data.amount,
+          installments: data.installments,
+          mdr: data.mdr,
+          days: listDays,
+        })
+      : calculate({
+          amount: data.amount,
+          installments: data.installments,
+          mdr: data.mdr,
+        });
   };
 
   return (
@@ -61,12 +62,12 @@ export const Form = () => {
         <input
           className="label__input"
           type="number"
-          name="amount"
+          placeholder="R$ 1000"
           {...register("amount")}
         />
         <Error>{errors.amount?.message}</Error>
       </TextField>
-      {/* 
+
       <TextField textInstallments={true}>
         <Typograph
           textFieldClass={"text-field--installments"}
@@ -76,7 +77,7 @@ export const Form = () => {
         <input
           className="label__input label__input--installments"
           type="number"
-          name="installments"
+          placeholder="3"
           {...register("installments")}
         />
         <Typograph
@@ -95,11 +96,22 @@ export const Form = () => {
         <input
           className="label__input"
           type="number"
-          name="mdr"
+          placeholder="4"
           {...register("mdr")}
         />
         <Error>{errors.mdr?.message}</Error>
-      </TextField> */}
+      </TextField>
+
+      <TextField textBox={true}>
+        <Typograph
+          textFieldClass={"text-field"}
+          typographClass={"main__label main__label--checkbox"}
+          text={"Informações de período"}
+        />
+        <input type="checkbox" {...register("days")} />
+      </TextField>
+
+      <button type="submit" hidden />
     </form>
   );
 };

@@ -20,7 +20,7 @@ export const List = () => {
       {results &&
         entries.map((item) => (
           <li key={item[0]}>
-              <Item item={item}/>
+            <Item item={item} />
           </li>
         ))}
     </ul>

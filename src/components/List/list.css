@@ -1,8 +1,10 @@
 .days__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
   width: 160px;
   height: 184px;
 
-
   overflow: hidden;
-  overflow-y: scroll;
 }

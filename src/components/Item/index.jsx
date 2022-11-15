@@ -11,7 +11,7 @@ export const Item = ({ item }) => {
     <>
       {item[0] === "1" ? (
         <>
-          <span className="side-bar-typograph side-bar__day">"Amanhã: "</span>
+          <span className="side-bar-typograph side-bar__day">Amanhã: </span>
           <span className="side-bar-typograph side-bar__results">
             {`${toCurrency(item[1])}`}
           </span>

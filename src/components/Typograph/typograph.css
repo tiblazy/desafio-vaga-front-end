@@ -22,8 +22,13 @@
   color: #cecece;
 }
 
+.main__label--checkbox {
+  display: flex;
+  width: 100%;
+}
+
 .side-bar-typograph {
-  font-size: 16px;
+  font-size: 15px;
   font-style: italic;
   font-weight: 700;
 

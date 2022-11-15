@@ -6,3 +6,7 @@
 .text-field--installments {
   height: 78px;
 }
+
+.text-field--checkbox {
+  display: flex;
+}
