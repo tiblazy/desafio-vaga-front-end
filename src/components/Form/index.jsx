@@ -29,24 +29,29 @@ export const Form = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const handleSubmitFunction = (data) => {
+  const handleOnSubmit = (data) => {
     setAmount(data.amount);
-    setInstallments(data.installments);
-    setMdr(data.mdr);
+    // setInstallments(data.installments);
+    // setMdr(data.mdr);
     // setDays(data.days);
 
     console.log(data);
 
+    // calculate({
+    //   amount: data.amount,
+    //   installments: 4,
+    //   mdr: 3,
+    // });
     calculate({
-      amount: data.amount,
-      installments: data.installments,
-      mdr: data.mdr,
+      amount,
+      installments: 3,
+      mdr: 4,
+      days: [30, 60, 90, 120, 150, 300],
     });
-    // calculate({ amount, installments, mdr, days });
   };
 
   return (
-    <form className="main__form" onSubmit={handleSubmit(handleSubmitFunction)}>
+    <form className="main__form" onSubmit={handleSubmit(handleOnSubmit)}>
       <TextField text={"Informe o valor da venda *"}>
         <Typograph
           textFieldClass={"text-field"}
@@ -61,7 +66,7 @@ export const Form = () => {
         />
         <Error>{errors.amount?.message}</Error>
       </TextField>
-      <Error>{errors.amount?.message}</Error>
+      {/* 
       <TextField textInstallments={true}>
         <Typograph
           textFieldClass={"text-field--installments"}
@@ -80,7 +85,6 @@ export const Form = () => {
         />
         <Error>{errors.installments?.message}</Error>
       </TextField>
-      <Error>{errors.installments?.message}</Error>
 
       <TextField>
         <Typograph
@@ -95,8 +99,7 @@ export const Form = () => {
           {...register("mdr")}
         />
         <Error>{errors.mdr?.message}</Error>
-      </TextField>
-      <Error>{errors.mdr?.message}</Error>
+      </TextField> */}
     </form>
   );
 };

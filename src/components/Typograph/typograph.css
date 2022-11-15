@@ -31,11 +31,11 @@
 }
 
 .side-bar__day {
+  font-weight: 400;
+
   color: var(--sidebar-secundary-color);
 }
 
 .side-bar__results {
-  font-weight: bold;
-
   color: var(--sidebar-secundary-color);
 }

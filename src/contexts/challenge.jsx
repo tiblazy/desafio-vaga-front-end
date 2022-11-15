@@ -9,8 +9,6 @@ export const ChallengeProvider = ({ children }) => {
   const calculate = (data) =>
     apiChallenge.post("", data).then((res) => setResults(res.data));
 
-  console.log(results);
-
   return (
     <ChallengeContext.Provider
       value={{
