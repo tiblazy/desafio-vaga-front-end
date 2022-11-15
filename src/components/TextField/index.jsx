@@ -1,30 +1,12 @@
-import { Input } from "../Input";
-import { Typograph } from "../Typograph";
+import "./textfield.css";
 
-export const TextField = ({
-  textFieldClass,
-  typographClass,
-  text,
-  textInstallments = false,
-  inputName,
-}) => {
+export const TextField = ({ children, textInstallments = false }) => {
   return (
     <>
       {textInstallments ? (
-        <div className={textFieldClass}>
-          <Typograph typographClass={typographClass} text={text} />
-          <Input type={"number"} inputName={inputName} />
-
-          <Typograph
-            typographClass={"main_label--installments"}
-            text={"Máximo de 12 parcelas"}
-          />
-        </div>
+        <div className={"text-field--intallments"}>{children}</div>
       ) : (
-        <div className={textFieldClass}>
-          <Typograph typographClass={typographClass} text={text} />
-          <Input type={"number"} inputName={inputName} />
-        </div>
+        <div className={"text-field"}>{children}</div>
       )}
     </>
   );
