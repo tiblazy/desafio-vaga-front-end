@@ -14,7 +14,7 @@ import "./form.css";
 import "../Input/input.css";
 
 export const Form = () => {
-  const [listDays, setListDays] = useState([]);
+  // const [listDays, setListDays] = useState([]);
 
   const { calculate } = useContext(ChallengeContext);
 
@@ -29,25 +29,25 @@ export const Form = () => {
 
   const handleOnSubmit = (data) => {
     console.log(data);
-    const array = ["30", "60", "90"];
-    const array2 = [];
-    for (let i = 0; i < array.length; i++) {
-      array2.push((i + 1) * Number(array.length[i]));
-      // setListDays([...listDays, (i + 1) * array.length[i]]);
-    }
-    console.log(array2);
+    const { amount, installments, mdr, days } = data;
+    const listDays = [];
 
-    data.days
+    if (days)
+      for (let i = 0; i < installments; i++) {
+        listDays.push(Number(i + 1) * 30);
+      }
+
+    days
       ? calculate({
-          amount: data.amount,
-          installments: data.installments,
-          mdr: data.mdr,
+          amount,
+          installments,
+          mdr,
           days: listDays,
         })
       : calculate({
-          amount: data.amount,
-          installments: data.installments,
-          mdr: data.mdr,
+          amount,
+          installments,
+          mdr,
         });
   };
 

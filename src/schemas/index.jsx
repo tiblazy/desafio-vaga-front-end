@@ -22,9 +22,8 @@ export const CalculateSchema = () => {
       .typeError("Campo obrigatório")
       .max(99, "Valor máximo: 99")
       .required("Campo obrigatório"),
+    days: yup.boolean().notRequired(),
   });
 
   return schema;
 };
-
-// days: yup.boolean().notRequired(),
