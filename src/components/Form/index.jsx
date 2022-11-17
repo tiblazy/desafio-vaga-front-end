@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { ChallengeContext } from "../../contexts/challenge";
 
 import { useForm } from "react-hook-form";
@@ -14,8 +14,6 @@ import "./form.css";
 import "../Input/input.css";
 
 export const Form = () => {
-  // const [listDays, setListDays] = useState([]);
-
   const { calculate } = useContext(ChallengeContext);
 
   const formSchema = CalculateSchema();
@@ -28,7 +26,6 @@ export const Form = () => {
   });
 
   const handleOnSubmit = (data) => {
-    console.log(data);
     const { amount, installments, mdr, days } = data;
     const listDays = [];
 
@@ -61,8 +58,7 @@ export const Form = () => {
         />
         <input
           className="label__input"
-          type="number"
-          placeholder="R$ 1000"
+          placeholder="R$ 1.000,00"
           {...register("amount")}
         />
         <Error>{errors.amount?.message}</Error>
