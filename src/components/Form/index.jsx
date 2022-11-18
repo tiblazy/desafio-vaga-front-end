@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ChallengeContext } from "../../contexts/challenge";
 
 import { useForm } from "react-hook-form";
@@ -9,12 +9,15 @@ import { TextField } from "../TextField";
 import { Typograph } from "../Typograph";
 import { Error } from "../Error";
 
+import { currencyMask, toInteger } from "../../functions/mask";
+
 import "../Main/main.css";
 import "./form.css";
 import "../Input/input.css";
 
 export const Form = () => {
   const { calculate } = useContext(ChallengeContext);
+  const [value, setValue] = useState("");
 
   const formSchema = CalculateSchema();
   const {
@@ -25,9 +28,14 @@ export const Form = () => {
     resolver: yupResolver(formSchema),
   });
 
+  const handleValue = (event) => setValue(currencyMask(event.target.value));
+
   const handleOnSubmit = (data) => {
     const { amount, installments, mdr, days } = data;
     const listDays = [];
+
+    console.log(String(toInteger(amount)).length);
+    console.log(amount.length);
 
     if (days)
       for (let i = 0; i < installments; i++) {
@@ -36,13 +44,13 @@ export const Form = () => {
 
     days
       ? calculate({
-          amount,
+          amount: toInteger(amount),
           installments,
           mdr,
           days: listDays,
         })
       : calculate({
-          amount,
+          amount: toInteger(amount),
           installments,
           mdr,
         });
@@ -59,7 +67,10 @@ export const Form = () => {
         <input
           className="label__input"
           placeholder="R$ 1.000,00"
-          {...register("amount")}
+          value={value}
+          {...register("amount", {
+            onChange: (event) => handleValue(event),
+          })}
         />
         <Error>{errors.amount?.message}</Error>
       </TextField>

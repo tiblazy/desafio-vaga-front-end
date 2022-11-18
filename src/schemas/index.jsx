@@ -3,11 +3,10 @@ import * as yup from "yup";
 export const CalculateSchema = () => {
   const schema = yup.object().shape({
     amount: yup
-      .number()
-      .integer()
-      .typeError("Campo obrigatório")
-      .min(1000, "Valor mínimo: 1000")
-      .max(100000000, "Valor máximo: 100000000")
+      .string()
+      .matches(/[^\d]+/g, "1.000,00 à 1000.000,00")
+      .min(10, "Valor mínimo: 1.000,00")
+      .max(16, "Valor máximo: 100000.000,00")
       .required("Campo obrigatório"),
     installments: yup
       .number()
